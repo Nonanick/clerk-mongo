@@ -1,0 +1,29 @@
+{
+  "name": "clerk-mongo",
+  "version": "0.0.1",
+  "description": "Auria Clerk - MongoDB Archive Adapter",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Auria",
+    "Clerk",
+    "MongoDB",
+    "Archive",
+    "Database",
+    "Adapter"
+  ],
+  "author": "Nicholas Frai",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^14.14.7",
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.6.3",
+    "tslib": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/mongodb": "^3.5.33"
+  }
+}
