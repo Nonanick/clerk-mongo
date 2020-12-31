@@ -16,12 +16,22 @@ export class MongoArchive extends Archive {
 
   constructor(options: MongoClientOptions & { database: string; connURL?: string; }) {
     super();
-    this._mongo = new MongoClient(
-      options.connURL ?? process.env.MONGO_URI ?? '',
-      options
-    );
-    this._connectPromise = this._mongo.connect();
+
+    let connURL = options.connURL ?? process.env.MONGO_URI ?? '';
     this._db = options.database;
+
+    let mongoOpts: any = {
+      ...options
+    };
+    delete mongoOpts.database;
+    delete mongoOpts.connURL;
+
+    this._mongo = new MongoClient(
+      connURL,
+      mongoOpts
+    );
+
+    this._connectPromise = this._mongo.connect();
 
     this.addModelProcedure(CreateProcedure, UpdateProcedure, DeleteProcedure);
   }

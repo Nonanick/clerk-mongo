@@ -1,5 +1,4 @@
-import { IModelProcedure } from "auria-clerk/dist/procedure/model/IModelProcedure";
-import { IModelProcedureResponse } from "auria-clerk/dist/procedure/model/IModelProcedureResponse";
+import { IModelProcedure } from "auria-clerk";
 import { MongoArchive } from "../../MongoArchive";
 
 export const DeleteProcedure: IModelProcedure = {
