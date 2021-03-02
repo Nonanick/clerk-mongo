@@ -1,6 +1,5 @@
 import util from 'util';
-import { Archive, MaybePromise, QueryRequest, QueryResponse, IFilterQuery, implementsFilterComparison, isFilterComparisonArray, FilterComparison, ComparableValues } from 'clerk';
-import { PropertyComparison } from 'clerk';
+import { PropertyComparison, Archive, MaybePromise, QueryRequest, QueryResponse, IFilterQuery, implementsFilterComparison, isFilterComparisonArray, FilterComparison, ComparableValues } from 'clerk';
 import { FilterQuery, MongoClient, MongoClientOptions } from 'mongodb';
 import { CreateProcedure } from './procedures/model/CreateProcedure';
 import { DeleteProcedure } from './procedures/model/DeleteProcedure';
@@ -75,7 +74,6 @@ export class MongoArchive extends Archive {
       console.error('Failed to query mongo! ', err);
     }
 
-    console.log('All fetched rows!', response.rows());
     return response;
   }
 
