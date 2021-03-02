@@ -1,4 +1,3 @@
-import util from 'util';
 import { PropertyComparison, Archive, MaybePromise, QueryRequest, QueryResponse, IFilterQuery, implementsFilterComparison, isFilterComparisonArray, FilterComparison, ComparableValues } from 'clerk';
 import { FilterQuery, MongoClient, MongoClientOptions } from 'mongodb';
 import { CreateProcedure } from './procedures/model/CreateProcedure';

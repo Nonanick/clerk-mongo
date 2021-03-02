@@ -10,21 +10,20 @@ export const UpdateProcedure: IModelProcedure = {
     }
 
     let values = await req.model.$commit();
+
     let id = req.model.$id();
 
     return (await archive.db()).collection(req.entity.source)
       .findOneAndUpdate(
-        {
-          [req.entity.identifier.name]: id
-        },
-        values
+        { [req.entity.identifier.name]: id },
+        { $set: values, }
       )
-      .then(ok => {
+      .then(modified => {
         return {
           model: req.model,
           procedure: req.procedure,
           request: req,
-          success: true
+          success: modified.ok ? true : false
         };
       }).catch(err => {
         return {
