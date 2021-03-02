@@ -1,4 +1,4 @@
-import { IModelProcedure } from "auria-clerk";
+import { IModelProcedure } from "clerk";
 import { MongoArchive } from "../../MongoArchive";
 
 export const CreateProcedure: IModelProcedure = {

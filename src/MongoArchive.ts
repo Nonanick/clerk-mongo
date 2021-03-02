@@ -1,6 +1,6 @@
 import util from 'util';
-import { Archive, MaybePromise, QueryRequest, QueryResponse, IFilterQuery, implementsFilterComparison, isFilterComparisonArray, FilterComparison, ComparableValues } from 'auria-clerk';
-import { PropertyComparison } from 'auria-clerk/dist/property/comparison/PropertyComparison';
+import { Archive, MaybePromise, QueryRequest, QueryResponse, IFilterQuery, implementsFilterComparison, isFilterComparisonArray, FilterComparison, ComparableValues } from 'clerk';
+import { PropertyComparison } from 'clerk';
 import { FilterQuery, MongoClient, MongoClientOptions } from 'mongodb';
 import { CreateProcedure } from './procedures/model/CreateProcedure';
 import { DeleteProcedure } from './procedures/model/DeleteProcedure';
