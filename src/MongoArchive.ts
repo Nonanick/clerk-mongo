@@ -62,7 +62,6 @@ export class MongoArchive extends Archive {
       .project(projectionProperties)
       .limit(queryRequest.limit.amount);
 
-    console.log('Limit!', queryRequest.limit.amount);
 
     let response = new QueryResponse(queryRequest);
 
@@ -146,10 +145,6 @@ export class MongoArchive extends Archive {
       }
 
     }
-
-    console.log(util.inspect(filter, false, 8, true));
-    console.log(util.inspect(newFilter, false, 8, true));
-    console.log('\n\n');
 
     return newFilter;
   }
