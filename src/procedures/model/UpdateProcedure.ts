@@ -25,7 +25,8 @@ export const UpdateProcedure: IModelProcedure = {
           request: req,
           success: modified.ok ? true : false
         };
-      }).catch(err => {
+      })
+      .catch(err => {
         return {
           model: req.model,
           procedure: req.procedure,
