@@ -1,5 +1,6 @@
 import { PropertyComparison, Archive, MaybePromise, QueryRequest, QueryResponse, IFilterQuery, implementsFilterComparison, isFilterComparisonArray, FilterComparison, ComparableValues } from 'clerk';
 import { FilterQuery, MongoClient, MongoClientOptions } from 'mongodb';
+import { BatchInsert } from './procedures';
 import { CreateProcedure } from './procedures/model/CreateProcedure';
 import { DeleteProcedure } from './procedures/model/DeleteProcedure';
 import { UpdateProcedure } from './procedures/model/UpdateProcedure';
@@ -11,6 +12,16 @@ export class MongoArchive extends Archive {
   protected _mongo: MongoClient;
 
   protected _db: string;
+
+  protected _entityProcedures = new Set([
+    BatchInsert
+  ]);
+
+  protected _modelProcedures = new Set([
+    CreateProcedure,
+    UpdateProcedure,
+    DeleteProcedure,
+  ])
 
   constructor(options: MongoClientOptions & { database: string; connURL?: string; }) {
     super();
@@ -31,7 +42,6 @@ export class MongoArchive extends Archive {
 
     this._connectPromise = this._mongo.connect();
 
-    this.addModelProcedure(CreateProcedure, UpdateProcedure, DeleteProcedure);
   }
 
   async connection() {
